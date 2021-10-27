@@ -10,7 +10,7 @@ import { print } from "./libraries/scripts";
 import "./index.scss";
 
 function App() {
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(990);
   const [profit, setProfit] = useState(0);
   const [upgrades, setUpgrades] = useState<UpgradeType[]>([]);
 
@@ -24,7 +24,7 @@ function App() {
     setUpgrades((upgrades) => {
       let upgrade = upgrades.find((upg) => upg.id === e.id);
       if (upgrade) {
-        if (upgrade.quantity > 10) {
+        if (upgrade.quantity === 10) {
           print(
             `10x ${upgrade.title}" is sacrificed and you have gained an double profit!`,
             "success"
