@@ -89,10 +89,10 @@ function App() {
         onPurchase={(e: UpgradeType) => purchaseUpgrade(e)}
       />
 
-      <div className="absolute text-left text-white bottom-4 left-4">
+      {/* <div className="absolute text-left text-white bottom-4 left-4">
         Real profit is {profit} <br></br>
         Real balance is {balance}
-      </div>
+      </div> */}
     </div>
   );
 }
