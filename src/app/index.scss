@@ -1,5 +1,5 @@
 .app {
-  @apply h-screen text-white py-16 xl:px-96 lg:px-48 md:px-24 px-8 text-center bg-cover flex flex-col justify-center;
+  @apply min-h-screen text-white py-16 xl:px-96 lg:px-48 md:px-24 sm:px-8 px-4 text-center bg-cover flex flex-col justify-center;
   background-image: linear-gradient(
       to bottom,
       rgb(95, 75, 75),

@@ -1,5 +1,5 @@
 .dashboard {
-  @apply grid grid-cols-3 gap-4 text-gray-200;
+  @apply grid lg:grid-cols-3 gap-4 text-gray-200;
   .upgrade {
     @apply backdrop-filter
     backdrop-blur-lg

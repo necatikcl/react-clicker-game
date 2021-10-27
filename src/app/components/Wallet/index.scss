@@ -1,9 +1,9 @@
 .wallet {
-  @apply mb-16;
+  @apply lg:mb-16 mb-8;
   .title {
-    @apply opacity-75 mb-4;
+    @apply opacity-75 lg:mb-4 mb-2;
   }
   .value {
-    @apply text-7xl justify-center font-black;
+    @apply lg:text-7xl text-4xl justify-center font-black;
   }
 }
