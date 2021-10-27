@@ -1,3 +1,4 @@
+import { goodNumber } from "../Dashboard/components/Upgrade";
 import "./index.scss";
 interface Props {
   profit: number;
@@ -18,7 +19,7 @@ export default function Clicker(props: Props) {
         alt=""
         className="image image-clone image-clone-bottom"
       />
-      Click to get {i}
+      Click to get {goodNumber(i)}
     </button>
   );
 }
