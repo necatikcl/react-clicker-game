@@ -1,0 +1,9 @@
+.app {
+  @apply h-screen mx-auto container text-white py-16 px-96 text-center bg-cover flex flex-col justify-center;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(95, 75, 75),
+      rgba(95, 75, 75, 0.85)
+    ),
+    url("bg.jpg");
+}

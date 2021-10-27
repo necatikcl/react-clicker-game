@@ -1,0 +1,9 @@
+.wallet {
+  @apply mb-16;
+  .title {
+    @apply opacity-75 mb-4;
+  }
+  .value {
+    @apply text-7xl justify-center font-black;
+  }
+}
