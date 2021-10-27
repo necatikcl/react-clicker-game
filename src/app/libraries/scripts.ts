@@ -1,20 +1,9 @@
 import { useState } from "react";
 export const print = (text: string, type: "success" | "error" | "info") => {
-  let color = "";
-  switch (type) {
-    case "error":
-      color = "red";
-      break;
-    case "info":
-      color = "blue";
-      break;
-    default:
-      color = "green";
-      break;
-  }
+  let colors = { error: "red", info: "blue", success: "green" };
   console.log(
     `%c${type.toUpperCase()}` + ` %c${text}`,
-    `color: white; background: ${color}; text-align:center; padding-left: 8px; margin-right: 5px`,
+    `color: white; background: ${colors[type]}; text-align:center; padding-left: 8px; margin-right: 5px`,
     "color: white"
   );
 };
