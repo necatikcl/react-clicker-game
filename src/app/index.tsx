@@ -72,6 +72,10 @@ function App() {
 
       return print(`Profit is set to ${amount}`, "success");
     },
+    restart: () => {
+      window.localStorage.clear();
+      location.reload();
+    },
   };
 
   const getPurchasables = (e: number, upgr: UpgradeType[]) => {
