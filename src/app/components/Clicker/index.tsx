@@ -4,7 +4,7 @@ interface Props {
   onClick: (num: number) => void;
 }
 export default function Clicker(props: Props) {
-  let i = ~~(1 + props.profit);
+  let i = 1 + props.profit;
   return (
     <button className="clicker" onClick={() => props.onClick(i)}>
       <img src="click.png" alt="" className="image" />

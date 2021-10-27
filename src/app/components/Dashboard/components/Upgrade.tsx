@@ -16,6 +16,8 @@ interface Props extends UpgradeType {
 export function calculatePrice(profit: number, quantity: number) {
   let quantityMultiplier = 0.1 + quantity / 100;
   let multiplier = 10 + quantity * quantityMultiplier;
+
+  // return 1;
   return profit * multiplier * (quantity === 10 ? 10 : 1);
 }
 

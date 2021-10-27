@@ -29,7 +29,7 @@ function App() {
       if (upgrade) {
         if (upgrade.quantity === 10) {
           print(
-            `10x ${upgrade.title}" is sacrificed and you have gained an double profit!`,
+            `10x "${upgrade.title}" is sacrificed and you have gained an double profit!`,
             "success"
           );
           upgrade.quantity = 1;
@@ -52,6 +52,7 @@ function App() {
       });
 
       setProfit(newProfit);
+      console.log(e, newProfit);
 
       return upgrades;
     });
@@ -86,6 +87,11 @@ function App() {
         upgrades={upgrades}
         onPurchase={(e: UpgradeType) => purchaseUpgrade(e)}
       />
+
+      {/* <div className="absolute text-left text-white bottom-4 left-4">
+        Real profit is {profit} <br></br>
+        Real balance is {balance}
+      </div> */}
     </div>
   );
 }
