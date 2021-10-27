@@ -18,10 +18,6 @@ export default function Wrapper(props: Props) {
     <div>
       <Wallet profit={props.profit} balance={props.balance} />
       <Clicker profit={props.profit} onClick={updateBalance} />
-      <div className="absolute text-left bottom-4 left-4">
-        balance is {props.balance} <br />
-        profit is {props.profit} <br />
-      </div>
     </div>
   );
 }
