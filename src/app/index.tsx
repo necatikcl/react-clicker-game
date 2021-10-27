@@ -6,13 +6,16 @@ import {
   calculatePrice,
 } from "./components/Dashboard/components/Upgrade";
 import { upgradesRaw } from "./libraries/data";
-import { print } from "./libraries/scripts";
+import { print, useLocalStorage } from "./libraries/scripts";
 import "./index.scss";
 
 function App() {
-  const [balance, setBalance] = useState(990);
-  const [profit, setProfit] = useState(0);
-  const [upgrades, setUpgrades] = useState<UpgradeType[]>([]);
+  const [balance, setBalance] = useLocalStorage("balance", 990);
+  const [profit, setProfit] = useLocalStorage("profit", 0);
+  const [upgrades, setUpgrades] = useLocalStorage<UpgradeType[]>(
+    "upgrades",
+    []
+  );
 
   const purchaseUpgrade = (e: UpgradeType) => {
     const price = calculatePrice(e.profit, e.quantity);
