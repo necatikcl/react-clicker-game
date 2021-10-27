@@ -10,7 +10,7 @@ import { print, useLocalStorage } from "./libraries/scripts";
 import "./index.scss";
 
 function App() {
-  const [balance, setBalance] = useLocalStorage("balance", 990);
+  const [balance, setBalance] = useLocalStorage("balance", 0);
   const [profit, setProfit] = useLocalStorage("profit", 0);
   const [upgrades, setUpgrades] = useLocalStorage<UpgradeType[]>(
     "upgrades",
