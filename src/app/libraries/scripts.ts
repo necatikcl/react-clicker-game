@@ -1,13 +1,23 @@
 import { useState } from "react";
-export const print = (text: string, type: "success" | "error" | "info") => {
+export const print = (
+  text: string,
+  type: "success" | "error" | "info",
+  printToConsole: boolean = true
+) => {
   let colors = { error: "red", info: "blue", success: "green" };
-  console.log(
+
+  let str = [
     `%c${type.toUpperCase()}` + ` %c${text}`,
     `color: white; background: ${colors[type]}; text-align:center; padding-left: 8px; margin-right: 5px`,
-    "color: white"
-  );
-};
+    "color: white",
+  ];
 
+  if (printToConsole) {
+    console.log(...str);
+  } else {
+    return str;
+  }
+};
 export function useLocalStorage<T>(key: string, initialValue: T) {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once

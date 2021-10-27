@@ -10,6 +10,7 @@ import { print, useLocalStorage } from "./libraries/scripts";
 import "./index.scss";
 
 function App() {
+  const [oldBalance, setOldBalance] = useLocalStorage("balance", 0);
   const [balance, setBalance] = useLocalStorage("balance", 0);
   const [profit, setProfit] = useLocalStorage("profit", 0);
   const [upgrades, setUpgrades] = useLocalStorage<UpgradeType[]>(
@@ -44,6 +45,7 @@ function App() {
         }
 
         setBalance((old) => old - price);
+        setOldBalance(balance);
       }
       let newProfit = 0;
       upgrades.forEach((item) => {
@@ -58,6 +60,20 @@ function App() {
     });
   };
 
+  // @ts-ignore
+  Window.admin = {
+    setBalance: (amount: number) => {
+      setBalance(amount);
+
+      return print(`Balance is set to ${amount}`, "success");
+    },
+    setProfit: (amount: number) => {
+      setProfit(amount);
+
+      return print(`Profit is set to ${amount}`, "success");
+    },
+  };
+
   const getPurchasables = (e: number, upgr: UpgradeType[]) => {
     return upgr.map((upg) => {
       let upgrade = { ...upg };
@@ -68,12 +84,15 @@ function App() {
     });
   };
 
-  if (upgrades.length == 0) {
-    setUpgrades(getPurchasables(balance, upgradesRaw));
+  if (upgrades.length == 0 || balance !== oldBalance) {
+    setOldBalance(balance);
+    setUpgrades(
+      getPurchasables(balance, balance !== oldBalance ? upgrades : upgradesRaw)
+    );
   }
-
   const onBalanceChange = (e: number) => {
     setBalance(e);
+    setOldBalance(balance);
     setUpgrades((upgrades) => getPurchasables(e, upgrades));
   };
 
