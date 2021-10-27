@@ -26,9 +26,6 @@ export function goodNumber(num: number): string {
     let newNum: string | number = num;
     if (num % 1 !== 0) {
       newNum = num.toFixed(2);
-      if (newNum.endsWith("0")) {
-        newNum = newNum.substring(0, newNum.length - 1);
-      }
     }
     return newNum;
   };
