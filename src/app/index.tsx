@@ -10,7 +10,7 @@ import { print } from "./libraries/scripts";
 import "./index.scss";
 
 function App() {
-  const [balance, setBalance] = useState(990);
+  const [balance, setBalance] = useState(0);
   const [profit, setProfit] = useState(0);
   const [upgrades, setUpgrades] = useState<UpgradeType[]>([]);
 
