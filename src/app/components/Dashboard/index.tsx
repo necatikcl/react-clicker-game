@@ -17,6 +17,7 @@ export default function Dashboard(props: Props) {
           profit={upgrade.profit}
           quantity={upgrade.quantity}
           canPurchasable={upgrade.canPurchasable}
+          sacrifice={upgrade.sacrifice}
           key={upgrade.id}
           id={upgrade.id}
           onPurchase={(e: UpgradeType) => props.onPurchase(e)}

@@ -20,8 +20,14 @@
     .value {
       @apply text-xl font-extrabold;
     }
+    .counters {
+      @apply absolute top-2 right-2 flex items-center;
+    }
     .quantity {
-      @apply bg-white text-black absolute px-1 text-right top-2 right-2 rounded-full text-xs;
+      @apply bg-white text-black  px-1 text-right  rounded-full text-xs;
+    }
+    .quantity-sacrifice {
+      @apply bg-red-500 text-white ml-2;
     }
 
     &:not(:hover) {

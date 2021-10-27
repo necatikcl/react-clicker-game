@@ -18,7 +18,7 @@ function App() {
   );
 
   const purchaseUpgrade = (e: UpgradeType) => {
-    const price = calculatePrice(e.profit, e.quantity);
+    const price = calculatePrice(e.profit, e.quantity, e.sacrifice);
     if (balance < price) {
       print("insufficient balance!", "error");
       return;
@@ -32,10 +32,11 @@ function App() {
             `10x "${upgrade.title}" is sacrificed and you have gained an double profit!`,
             "success"
           );
+          upgrade.sacrifice++;
           upgrade.quantity = 1;
           upgrade.profit *= 2;
         } else {
-          upgrade.quantity = e.quantity + 1;
+          upgrade.quantity += 1;
           print(
             `${upgrade.title}" purchased and now you have ${upgrade.quantity}x it`,
             "success"
@@ -52,7 +53,6 @@ function App() {
       });
 
       setProfit(newProfit);
-      console.log(e, newProfit);
 
       return upgrades;
     });
@@ -62,7 +62,8 @@ function App() {
     return upgr.map((upg) => {
       let upgrade = { ...upg };
       upgrade.canPurchasable =
-        e >= calculatePrice(upgrade.profit, upgrade.quantity);
+        e >=
+        calculatePrice(upgrade.profit, upgrade.quantity, upgrade.sacrifice);
       return upgrade;
     });
   };
@@ -88,10 +89,10 @@ function App() {
         onPurchase={(e: UpgradeType) => purchaseUpgrade(e)}
       />
 
-      {/* <div className="absolute text-left text-white bottom-4 left-4">
+      <div className="absolute text-left text-white bottom-4 left-4">
         Real profit is {profit} <br></br>
         Real balance is {balance}
-      </div> */}
+      </div>
     </div>
   );
 }
