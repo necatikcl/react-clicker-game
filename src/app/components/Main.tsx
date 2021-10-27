@@ -6,6 +6,7 @@ interface Props {
   balance: number;
   profit: number;
   onBalanceChange: (num: number) => void;
+  onPowerUp: () => void;
 }
 
 export default function Wrapper(props: Props) {
@@ -13,11 +14,15 @@ export default function Wrapper(props: Props) {
     let calc = props.balance + e;
     props.onBalanceChange(calc);
   };
-
   return (
     <div>
       <Wallet profit={props.profit} balance={props.balance} />
-      <Clicker profit={props.profit} onClick={updateBalance} />
+      <Clicker
+        profit={props.profit}
+        balance={props.balance}
+        onClick={updateBalance}
+        onPowerUp={() => props.onPowerUp()}
+      />
     </div>
   );
 }

@@ -3,4 +3,44 @@
   .image {
     @apply w-8 h-8;
   }
+  .power-up,
+  .current-power {
+    @apply absolute
+    top-1/2 -translate-y-1/2 text-xs
+    uppercase
+    p-1
+
+    bg-white
+    bg-opacity-10
+    transform
+    flex items-center justify-center;
+  }
+  .power-up {
+    @apply right-4 rounded-full px-3 hover:scale-105 transition-transform;
+    background-image: linear-gradient(
+      to right,
+      #cf5c5c,
+      #c19b4a,
+      #def2a0,
+      #c6ee4a,
+      #42eca6,
+      #64b3d9,
+      #208ea2,
+      #498ada,
+      #5b73df,
+      #897ed3,
+      #cf5c5c,
+      #c19b4a
+    );
+    background-size: 1100% 100%;
+    animation: gradient 1s linear infinite;
+    svg {
+      @apply mr-2;
+      width: 1em;
+      height: 1em;
+    }
+  }
+  .current-power {
+    @apply left-4 rounded-md px-2;
+  }
 }

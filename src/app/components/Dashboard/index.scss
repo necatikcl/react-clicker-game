@@ -75,15 +75,6 @@
       background-size: 1100% 100%;
       animation: gradient 2s linear infinite;
 
-      @keyframes gradient {
-        0% {
-          background-position: 0% 0%;
-        }
-        100% {
-          background-position: 100% 0%;
-        }
-      }
-
       .title {
         @apply uppercase;
       }
@@ -100,5 +91,14 @@
   }
   &.image-clone-bottom {
     @apply -bottom-8 -right-8 opacity-25;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
   }
 }

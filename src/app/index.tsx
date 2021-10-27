@@ -98,6 +98,15 @@ function App() {
     setBalance(e);
     setOldBalance(balance);
     setUpgrades((upgrades) => getPurchasables(e, upgrades));
+
+    console.log("CLICK");
+  };
+  const onPowerUp = () => {
+    setOldBalance(0);
+    setBalance(0);
+    setProfit(0);
+    setUpgrades(getPurchasables(0, upgradesRaw));
+    console.log("POWERUP");
   };
 
   return (
@@ -106,6 +115,7 @@ function App() {
         balance={balance}
         profit={profit}
         onBalanceChange={onBalanceChange}
+        onPowerUp={onPowerUp}
       />
       <Dashboard
         upgrades={upgrades}
